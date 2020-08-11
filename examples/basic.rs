@@ -7,6 +7,11 @@ fn main() {
 
     let _ = client.set_secret("foo", "bar");
 
+    let sys = client.sys();
+    sys.foo();
+    let mounts = sys.list_mounts().unwrap();
+    println!("Mounts available are: {:#?}", mounts);
+
     let secret = client.get_secret("foo").unwrap();
 
     println!("Secret is \"bar\": {}", secret);
